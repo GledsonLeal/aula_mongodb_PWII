@@ -1,0 +1,20 @@
+<h1>Lista dos alunos</h1>
+<a href="/alunos/cadastro"><button>Cadastrar novo aluno</button></a>
+{{#each alunos}}
+
+    <div class="card">
+        <h4>Nome Completo: {{nome}}</h4>
+        <small>E-mail: {{email}}</small><br>
+        <small>Data de Criação: {{#formatDate date}}{{/formatDate}}</small><br>
+        <a href="/alunos/editar/{{_id}}"><button>Editar aluno</button></a>
+        <!--<a href="/alunos/deletar/{{_id}}"><button>Deletar aluno</button></a>-->
+        <form action="/alunos/deletar" method="POST">
+            <input type="hidden" name="id" value="{{_id}}">
+            <a><button>Deletar aluno</button></a>
+        </form>
+    </div>
+    <hr>
+
+{{else}}
+
+{{/each}}
